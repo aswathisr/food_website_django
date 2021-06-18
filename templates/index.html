@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<br>
+<br>
+
+        <div class="tm-home-img-container">
+            <img src="{% static 'img/tm-home-img.jpg' %}" alt="Image" class="hidden-lg-up img-fluid">
+        </div>
+
+        <section class="tm-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-xs-center">
+                        <h2 class="tm-gold-text tm-title">{% if category %}{{category.name}} {% else %} FOOD ITEMS {% endif %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+
+{% for x in products %}
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-4">
+
+
+
+                        <div class="tm-content-box">
+
+
+<img src="{{x.image.url}}" alt="Image" class="tm-margin-b-20 img-fluid" width="200px" height="200px">
+
+                            <h4 class="tm-margin-b-20 tm-gold-text">{{x.title}}</h4>
+
+                            <p class="tm-margin-b-20">{{x.price}}</p>
+
+
+                            <a href="{{ x.get_url }}" class="tm-btn text-uppercase">Detail</a>
+
+
+                        </div>
+
+<br><br>
+                    </div>
+                    {% endfor %}
+
+
+                     <!-- row -->
+
+
+        </section>
+        
+        <footer class="tm-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    
+
+
+
+                {% endblock %}
